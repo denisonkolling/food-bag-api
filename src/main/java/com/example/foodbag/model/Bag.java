@@ -13,9 +13,9 @@ import java.util.List;
 @AllArgsConstructor
 @Builder
 @Data
-@NoArgsConstructor
-@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 @Entity
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+@NoArgsConstructor
 public class Bag {
 
     @Id
@@ -34,6 +34,7 @@ public class Bag {
     @Enumerated
     private PaymentMethod paymentMethod;
 
-    private Boolean closed;
+    public Boolean closed;
 
 }
+
