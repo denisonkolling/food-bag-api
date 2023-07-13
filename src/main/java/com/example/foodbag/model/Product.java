@@ -26,7 +26,7 @@ public class Product {
     private Double unitValue;
 
     @Builder.Default
-    private Boolean available = true;
+    private boolean available = true;
 
     @ManyToOne
     @JsonIgnore

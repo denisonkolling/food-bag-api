@@ -24,7 +24,7 @@ public class Item {
     @OneToOne
     private Product product;
 
-    private Integer quantity;
+    private int quantity;
 
     @ManyToOne
     @JsonIgnore

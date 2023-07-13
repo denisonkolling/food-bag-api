@@ -34,7 +34,7 @@ public class Bag {
     @Enumerated
     private PaymentMethod paymentMethod;
 
-    public Boolean closed;
+    public boolean closed;
 
 }
 

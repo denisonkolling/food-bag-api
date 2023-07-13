@@ -13,6 +13,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @RequiredArgsConstructor
@@ -34,7 +35,7 @@ public class BagServiceImpl implements BagService{
     public Item addBagItem(ItemDto itemDto) {
         Bag bag = findBag(itemDto.getBagId());
 
-        if (bag.closed = true) {
+        if (bag.isClosed()) {
             throw new RuntimeException("This bag is already closed");
         }
 
@@ -59,6 +60,20 @@ public class BagServiceImpl implements BagService{
                 throw new RuntimeException("Not possible to add product from different restaurants");
             }
         }
+
+        List<Double> itemsValue = new ArrayList<>();
+
+        for (Item bagItem: bagItems){
+            double  itemTotalValue = bagItem.getProduct().getUnitValue() * bagItem.getQuantity();
+            itemsValue.add(itemTotalValue);
+        }
+
+        double totalBagValue = itemsValue.stream()
+                .mapToDouble(itemTotalUnitValue -> itemTotalUnitValue )
+                .sum();
+
+
+        bag.setBagTotalValue(totalBagValue);
         bagRepository.save(bag);
         return itemRepository.save(newItem);
     }

@@ -15,16 +15,16 @@ public class BagController {
 
     private final BagService bagService;
 
+    @GetMapping("/{id}")
+    public Bag findBag(@PathVariable("id") Long id){
+        return bagService.findBag(id);
+    }
 
     @PostMapping
     public Item addBagItem(@RequestBody ItemDto itemDto){
         return bagService.addBagItem(itemDto);
     }
 
-    @GetMapping("/{id}")
-    public Bag findBag(@PathVariable("id") Long id){
-        return bagService.findBag(id);
-    }
 
     @PatchMapping("/closeBag/{id}")
     public Bag closeBag(@PathVariable("id") Long id, @RequestParam("paymentMethod") Integer paymentMethod){
