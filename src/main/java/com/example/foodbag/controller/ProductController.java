@@ -6,10 +6,9 @@ import com.example.foodbag.repository.ProductRepository;
 import com.example.foodbag.service.ProductService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -32,5 +31,9 @@ public class ProductController {
         return productService.getProductById(id);
     }
 
+    @PostMapping
+    public ResponseEntity<?> createProduct(@RequestBody Product product){
+        return new ResponseEntity<>(productService.createProduct(product), HttpStatus.CREATED);
+    }
 
 }
