@@ -52,21 +52,4 @@ public class ProductServiceImpl implements ProductService {
 
 }
 
-//    @Override
-//    public Invoice createInvoice(Invoice form) {
-//        Invoice invoice = new Invoice();
-//        Customer issuer = customerRepository.findById(form.getIssuer().getId()).get();
-//        Customer buyer = customerRepository.findById(form.getBuyer().getId()).get();
-//        Item item = itemRepository.findById(form.getItem().getId()).get();
-//
-//        invoice.setNumber(form.getNumber());
-//        invoice.setDate(form.getDate());
-//        invoice.setIssuer(issuer);
-//        invoice.setBuyer(buyer);
-//        invoice.setItem(item);
-//
-//        return invoiceRepository.save(invoice);
-//
-//    }
-
 
