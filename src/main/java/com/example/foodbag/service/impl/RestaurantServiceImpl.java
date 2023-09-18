@@ -38,7 +38,7 @@ public class RestaurantServiceImpl implements RestaurantService {
             restaurantRepository.delete(restaurant);
             return "Restaurant deleted successfully";
         }
-        return "Something wron on server";
+        return "Something wrong on server";
     }
 
     @Override
