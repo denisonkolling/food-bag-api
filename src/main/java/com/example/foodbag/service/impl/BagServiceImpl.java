@@ -33,6 +33,7 @@ public class BagServiceImpl implements BagService{
 
     @Override
     public Item addBagItem(ItemDto itemDto) {
+
         Bag bag = findBag(itemDto.getBagId());
 
         if (bag.isClosed()) {
